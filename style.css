@@ -1,0 +1,18 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+background{
+  background-color:rgb(2, 217, 2);
+}
+canvas {
+  display: block;
+}
+
+.invisible{
+  color: rgba(0,0,0,0);
+  font-size:1%;
+  position:absolute;
+  z-index:-1;
+}
