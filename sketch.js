@@ -5,23 +5,23 @@ let sound_1,sound_2;
 
 function preload(){
   sound_1=loadSound('2.wav');
-  sound_2=loadSound('1.wav'); 
+  sound_2=loadSound('1.wav');
 }
 
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
   loadImage('bg3.jpg',img=>{
-    image(img,0,0,width,height); 
-    
+    image(img,0,0,width,height);
+
   });
-  
-//set up oscillator and microphone  
+
+//set up oscillator and microphone
 
   mic= new p5.AudioIn();
   mic.start();
 	let osc_1,osc_2;
-	
+
 	function noisePulse (){
   osc_1.amp(0.5,1);
   osc_1.fade(0,2);
@@ -34,28 +34,28 @@ function setup() {
   osc_2.amp(0.5,0.2);
   osc_2.fade(0,0.5);
   osc_2.freq(233.08);
-  
+
 }
   osc_1 = new p5.Noise('brown');
   osc_1.amp(0);
   osc_1.start();
-  
+
   osc_2 = new p5.TriOsc();
   osc_2.amp(0);
   osc_2.start();
-  
-  
+
+
   for(let i=0;i<10;i++){
     squares.push(new Square((10+i)*width/30,0));
   }
-  
+
 //clock
   function displayTime(){
   let h = hour();
   let m = minute();
   let s = second();
   let display_text = createElement('time',h+':0'+m+':'+s);
-  
+
   display_text.position(random(2*width/3,width),random(height/3,2*height/3));
   display_text.style('color','rgba(100,100,100,0.1)');
   display_text.style('font-family','Monaco');
@@ -66,13 +66,13 @@ function setup() {
   }else{
     display_text.html(h+':'+m+':'+s);
     setInterval(displayTime,60000);
-  }   
+  }
 }
   displayTime();
 
 //sentence
-  
-let sentence = createP("There was the grave misconception that she required a fishing hook-shaped object the length of her arm for penetration.");
+
+let sentence = createP("There was the grave misconception that she required a fishing hook-shaped object the length of her arm.");
 
 sentence.position(width/6,height/3);
 sentence.style('font-family','Monaco');
@@ -82,9 +82,9 @@ sentence.style('background-color','gray');
 sentence.style('padding','2px');
 sentence.style('border','inset black 2px');
 
-  
+
  //some percussion samples
-  
+
   let button_1= createButton('#');
   button_1.position(5*width/6+10,0);
   button_1.style('width',width/6+'px');
@@ -92,13 +92,13 @@ sentence.style('border','inset black 2px');
   button_1.style('border','solid');
   button_1.style('border-color','#ffd900');
   button_1.style('color','white');
-  button_1.style('background','#333333'); 
+  button_1.style('background','#333333');
   button_1.style('font-size','2em');
   button_1.style('opacity','0.9');
   button_1.mousePressed(function (){
     playSound(sound_1);
   });
-  
+
   let button_2= createButton('$');
   button_2.position(0,5*height/6);
   button_2.style('width',width/6+'px');
@@ -106,72 +106,72 @@ sentence.style('border','inset black 2px');
   button_2.style('border','solid');
   button_2.style('border-color','#ffd900');
   button_2.style('color','black');
-  button_2.style('background','#cccccc'); 
+  button_2.style('background','#cccccc');
   button_2.style('font-size','2em');
   button_2.style('font-family','Courier');
   button_2.style('opacity','0.8');
   button_2.mousePressed(function (){
     playSound(sound_2);
   });
-  
+
   //Type things for their own sake
-  
+
   let typeit = createInput('');
   typeit.position(2*width/3+10,2*height/3-60);
   typeit.style('background-color','black');
   typeit.style('color','#dddddd');
-  
+
   //Screen reader stuff
-  
-  let invisible_message = createP('N n? nro o! ob li? ttts!');
-  
+
+  let invisible_message = createP('nn ?aihcat! sue');
+
   invisible_message.position(width/2,height/2);
-  
+
   invisible_message.style('opacity','0');
-	
+
 	invisible_message.style('font-size','1px');
-  
+
   let invisible_button_1 = createButton('Treasure');
-  
+
   invisible_button_1.position(width/4,height/4);
-  
+
   invisible_button_1.style('opacity','0');
-	
+
 	invisible_button_1.style('width','1px');
-	
+
 	invisible_button_1.style('height','1px');
-  
+
   invisible_button_1.mousePressed(messageAlert);
-	
-	
-  
+
+
+
   let invisible_button_2 = createButton('More treasure');
-  
+
   invisible_button_2.position(3*width/4,3*height/4);
-  
+
   invisible_button_2.style('opacity','0');
-	
+
 	invisible_button_2.style('width','1px');
-	
+
 	invisible_button_2.style('height','1px');
-  
+
   invisible_button_2.mousePressed(function (){
     setInterval(noisePulse,5000);
   });
-  
+
 let invisible_button_3 = createButton('Even more treasure');
   invisible_button_3.position(3*width/4,5*height/6);
-  
+
   invisible_button_3.style('opacity','0');
-	
+
 	invisible_button_2.style('width','1px');
-	
+
 	invisible_button_2.style('height','1px');
-  
+
   invisible_button_3.mousePressed(function (){
     setInterval(tonePulse,4000);
   });
-  
+
 
 }
 
@@ -190,7 +190,7 @@ function draw() {
     polygon(0+i,0+i,i/3,3*i);
   }
   pop();
-  
+
 
   push();
   noFill();
@@ -204,12 +204,12 @@ function draw() {
     polygon(width/2,height/2,i/30,i);
   }
   pop();
-  
-  
+
+
 //Different things in the panels
-  
+
   let time=1000;
-  
+
   for(let i=0;i<2;i++){
     for(let j=0;j<2;j++){
       push();
@@ -230,7 +230,7 @@ function draw() {
   strokeWeight(2);
   point(random(width/3)-2,random(height/3)-2);
   pop();
-  
+
   for(let i=0;i<squares.length;i++){
     squares[i].display();
     squares[i].move();
@@ -246,17 +246,17 @@ function draw() {
   textSize(24);
   textFont('Courier New');
   textStyle(BOLDITALIC);
-  text('Nrobllits',width/2,height/2);
+  text('naihcatsue',width/2,height/2);
   pop();
-  
- //microphone responsive squiggles and ellipses  
+
+ //microphone responsive squiggles and ellipses
   push();
   noFill();
   let micLevel=mic.getLevel();
   let from_2=color(255, 247, 0);
   let to_2 =color(138, 106, 0);
   let between_1=lerpColor(from_2,to_2,micLevel);
-  stroke(between_1); 
+  stroke(between_1);
   let vertX = map(micLevel,0,1,width/3,2*width/3);
   let vertY = map(micLevel,0,1,2*height/3,height);
   beginShape();
@@ -268,14 +268,14 @@ function draw() {
   endShape();
 
   pop();
-  
+
 
   if(micLevel>0.1){
     push();
     a=255;
     let fromThree=color(132, 0, 255);
     fromThree.setAlpha(a);
-    let toThree=color(138, 106, 0); 
+    let toThree=color(138, 106, 0);
     toThree.setAlpha(a);
     let between_2=lerpColor(fromThree,toThree,micLevel);
     fill(between_2);
@@ -286,7 +286,7 @@ function draw() {
       }
     pop();
   }
-//assorted polygons with looping colors  
+//assorted polygons with looping colors
   push();
   for(let i=0;i<6;i++){
      for(let j=0;j<3;j++){
@@ -297,7 +297,7 @@ function draw() {
        let from_2 = color(255);
        let to_2 = color(0);
        let between_2 = lerpColor(from_2,to_2,cos(millis()/1000));
-       stroke(between_2);      
+       stroke(between_2);
        fill(between_1);
        polygon(2*width/3+i*40+15,2*height/3+j*45+15,i+j+3,width/100);
      }
@@ -305,18 +305,18 @@ function draw() {
   pop();
 
 //nested rectangles
-  
+
   push();
   for(let i=0;i<100;i++){
     noFill();
     stroke(255, 217, 0);
     rect(0,height/3,200/i,100/i);
   }
-  
-  pop();
-  
 
-  
+  pop();
+
+
+
 }
 
 //bouncing purple squares
@@ -334,12 +334,12 @@ class Square {
     strokeWeight(0.5);
     rect(this.x,this.y,this.size,this.size);
   }
-  
+
   move(){
     if(this.x<width/3 || this.x>2*width/3-12){
       this.xspeed*=-1;
     }
-    
+
     if(this.y<0 || this.y>height/3-11){
       this.yspeed*=-1;
   }
@@ -366,20 +366,20 @@ function polygon(x,y,n,r){
 
 function playSound(audio){
   audio.play();
-  
+
 }
 
 function windowResized() {
   resizeCanvas(windowWidth,windowHeight);
   loadImage('bg3.jpg',img=>{
-    image(img,0,0,width,height); 
-    
+    image(img,0,0,width,height);
+
     for(let i=0;i<10;i++){
     squares.push(new Square((10+i)*width/30,0));
   }
-  
+
  // Disrupt everything with duplication
-    
+
  let button_1= createButton('#');
   button_1.position(5*width/6+10,0);
   button_1.style('width',width/6+'px');
@@ -387,13 +387,13 @@ function windowResized() {
   button_1.style('border','solid');
   button_1.style('border-color','#ffd900');
   button_1.style('color','white');
-  button_1.style('background','#333333'); 
+  button_1.style('background','#333333');
   button_1.style('font-size','2em');
   button_1.style('opacity','0.9');
   button_1.mousePressed(function (){
     playSound(sound_1);
   });
-  
+
   let button_2= createButton('$');
   button_2.position(0,5*height/6);
   button_2.style('width',width/6+'px');
@@ -401,69 +401,69 @@ function windowResized() {
   button_2.style('border','solid');
   button_2.style('border-color','#ffd900');
   button_2.style('color','black');
-  button_2.style('background','#cccccc'); 
+  button_2.style('background','#cccccc');
   button_2.style('font-size','2em');
   button_2.style('font-family','Courier');
   button_2.style('opacity','0.8');
   button_2.mousePressed(function (){
     playSound(sound_2);
   });
-  
-  
+
+
   let typeit = createInput('');
   typeit.position(2*width/3+10,2*height/3-60);
   typeit.style('background-color','black');
   typeit.style('color','#dddddd');
-  
+
   let invisible_message = createP('N n? nro o! ob li? ttts!');
-  
+
   invisible_message.position(width/2,height/2);
-  
+
   invisible_message.style('opacity','0');
-	
+
 	invisible_message.style('font-size','1px');
-  
+
   let invisible_button_1 = createButton('Trrrrrrrreasure');
-  
+
   invisible_button_1.position(width/4,height/4);
-  
+
   invisible_button_1.style('opacity','0');
-	
+
 	invisible_button_1.style('width','1px');
-	
+
 	invisible_button_1.style('height','1px');
-  
+
   invisible_button_1.mousePressed(messageAlert);
-	
-	
-  
+
+
+
   let invisible_button_2 = createButton('Moreeeeee treasure');
-  
+
   invisible_button_2.position(3*width/4,3*height/4);
-  
+
   invisible_button_2.style('opacity','0');
-	
+
 	invisible_button_2.style('width','1px');
-	
+
 	invisible_button_2.style('height','1px');
-  
+
   invisible_button_2.mousePressed(function (){
     setInterval(noisePulse,5000);
   });
-  
+
 let invisible_button_3 = createButton('Even moooooore treasure');
   invisible_button_3.position(3*width/4,5*height/6);
-  
+
   invisible_button_3.style('opacity','0');
-	
+
 	invisible_button_2.style('width','1px');
-	
+
 	invisible_button_2.style('height','1px');
-  
+
   invisible_button_3.mousePressed(function (){
     setInterval(tonePulse,4000);
   });
-  
+
   });
 
 }
