@@ -3,7 +3,7 @@ html, body {
   padding: 0;
 }
 
-background{
+background {
   background-color:rgb(2, 217, 2);
 }
 canvas {
@@ -16,3 +16,40 @@ canvas {
   position:absolute;
   z-index:-1;
 }
+
+.time {
+  font-family: 'Monaco';
+  color: rgba(100,100,100,0.2);
+}
+
+.sentence {
+  font-family: 'Monaco';
+  font-size: 1em;
+  color: rgb(0, 255, 0);
+  background-color: gray;
+  padding: 2px;
+  border: inset black 2px;
+}
+
+.button-dark {
+  background: rgb(51, 51, 51);
+  color: white;
+  font-size: 2em;
+  opacity: 0.9;
+  border: solid rgb(255, 217, 0);
+}
+
+.button-light {
+  background: rgb(204, 204, 204);
+  color: black;
+  font-size: 2em;
+  opacity: 0.8;
+  font-family: 'Courier New', Courier, monospace;
+  border: solid rgb(255, 217, 0);
+}
+
+.input {
+  background-color: black;
+  color: rgb(221, 221, 221);
+}
+
