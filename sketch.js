@@ -1,5 +1,3 @@
-p5.disableFriendlyErrors = true;
-
 const squares = [];
 let mic;
 let sound1;
