@@ -88,6 +88,7 @@ function setup() {
   button2.style('width', `${width / 6}px`);
   button2.style('height', `${height / 6}px`);
   button2.class('button-light');
+  button2.attribute('data-cy', 'sound2');
   button2.mousePressed(() => {
     playSound(sound2);
   });
