@@ -4,17 +4,32 @@ describe('Looping Shape Cereal Browser Tests', () => {
   });
 
   it('should capture user input in a form', () => {
-    cy.get('[data-cy="type"]')
+    cy.get('.input')
       .type('platypus')
       .should('have.value', 'platypus');
   });
 
-  it('should play the audio file associated with the $ button', () => {
-    cy.get('[data-cy="sound2')
+  it('should play the audio files', () => {
+    cy.get('.button-light')
       .invoke('attr', 'src')
       .then((audioFile) => {
         const audio = new Audio(audioFile);
         audio.play();
       });
+
+    cy.get('.button-dark')
+      .invoke('attr', 'src')
+      .then((audioFile) => {
+        const audio = new Audio(audioFile);
+        audio.play();
+      });
+  });
+
+  it('should access invisible buttons', () => {
+    cy.get('.invisible').click({ multiple: true, force: true });
+  });
+
+  it('should display the word \'inhabitants\'', () => {
+    cy.contains('inhabitants').click({ force: true });
   });
 });

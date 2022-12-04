@@ -88,7 +88,6 @@ function setup() {
   button2.style('width', `${width / 6}px`);
   button2.style('height', `${height / 6}px`);
   button2.class('button-light');
-  button2.attribute('data-cy', 'sound2');
   button2.mousePressed(() => {
     playSound(sound2);
   });
@@ -97,7 +96,6 @@ function setup() {
   const typeIt = createInput('');
   typeIt.position((2 * width) / 3 + 10, (2 * height) / 3 - 60);
   typeIt.class('input');
-  typeIt.attribute('data-cy', 'type');
 
   // Screen reader stuff
   const invisibleIntro = createP('You have found the invisible hidden treasure. Keep digging!\ Due to fear, one of the inhabitants excreted a pixel, grass, and antifreeze-filled sheet from a small tail.\ It also featured the nine things it had consumed recently:\ word salad, polygon pastries, never-ending pasta, an extra dark, large form, ocean sprinkles,\ zigzags in circle sauce, sound-filled cement buns, a nested skeleton');
