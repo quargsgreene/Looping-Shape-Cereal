@@ -2,6 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   background-color:rgb(2, 217, 2);
+  font-family: 'Monaco';
 }
 
 canvas {
