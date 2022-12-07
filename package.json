@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@cypress/code-coverage": "^3.10.0",
     "cypress": "^11.2.0",
     "eslint": "^8.28.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -7,7 +8,8 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-p5js": "^1.0.0",
     "jsdom-global": "3.0.2",
-    "mocha-jsdom": "^2.0.0"
+    "mocha-jsdom": "^2.0.0",
+    "nyc": "^15.1.0"
   },
   "name": "looping-shape-cereal",
   "description": "Looping Shape Cereal",
@@ -160,7 +162,7 @@
     "yocto-queue": "^0.1.0"
   },
   "scripts": {
-    "test": "npx cypress run"
+    "test": "nyc npx cypress run"
   },
   "repository": {
     "type": "git",
